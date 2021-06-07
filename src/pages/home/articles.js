@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Article = ({ item }) => {
+const Article = ({ item, id }) => {
   const { title, description, img } = item;
 
   return (
@@ -10,7 +11,7 @@ const Article = ({ item }) => {
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
           <p className="card-text">{description}</p>
-          <a href="http://google.com" className="btn btn-primary">Lire article</a>
+          <Link className="btn btn-primary" to={`/article/${id}`}>Lire article</Link>
         </div>
       </div>
     </div>
@@ -19,7 +20,7 @@ const Article = ({ item }) => {
 
 const Articles = ({ data }) => (
   <div className="row">
-    {data.map((item) => (<Article item={item} />))}
+    {data.map((item, id) => (<Article id={id} item={item} />))}
   </div>
 );
 
