@@ -1,8 +1,10 @@
 import React from 'react';
 
+import Articles from './articles';
+
 const Home = () => (
   <div>
-    <h1>Hello world</h1>
+      <Articles />
   </div>
 );
 

@@ -25,6 +25,9 @@ module.exports = {
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
     "react/prop-types": 0,
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "linebreak-style": 0,
+    "global-require": 0,
+    "eslint linebreak-style": [0, "error", "windows"]
   }
 };
