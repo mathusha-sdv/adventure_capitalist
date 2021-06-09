@@ -5,8 +5,7 @@ const Comment = ({ item }) => {
 
   return (
     <li className="list-group-item">
-      <span>{date}</span>
-      {text}
+      <span>{`${date} -> ${text}`}</span>
     </li>
   );
 };
@@ -18,6 +17,25 @@ class Comments extends Component {
     this.state = {
       comments: []
     };
+
+    this.textArea = React.createRef();
+    this.handleAddComment = this.handleAddComment.bind(this);
+  }
+
+  handleAddComment() {
+    const { comments } = this.state;
+    const date = new Date();
+
+    const commentsUpdated = comments.concat({
+      date: date.toUTCString(),
+      text: this.textArea.current.value
+    });
+
+    this.setState({
+      comments: commentsUpdated
+    });
+
+    this.textArea.current.value = '';
   }
 
   render() {
@@ -30,10 +48,10 @@ class Comments extends Component {
             <h4>Add Comment</h4>
             <form>
               <div className="mb-3">
-                <textarea className="form-control" id="sendcomment" rows="3" />
+                <textarea ref={this.textArea} className="form-control" id="sendcomment" rows="3" />
               </div>
               <div className="mb-3">
-                <button type="submit" className="btn btn-primary">Add Comment</button>
+                <button type="button" onClick={this.handleAddComment} className="btn btn-primary">Add Comment</button>
               </div>
             </form>
           </div>
