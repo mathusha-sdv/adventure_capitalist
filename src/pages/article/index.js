@@ -3,6 +3,7 @@ import { useParams, Redirect } from 'react-router-dom';
 
 import data from '../../components/data';
 import Page from '..';
+import Comments from './comments';
 
 const Article = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const Article = () => {
           <p>{content}</p>
         </div>
       </div>
+      <Comments />
     </Page>
   );
 };
