@@ -76,6 +76,10 @@ export const Comments = () => {
   const textArea = useRef();
 
   const handleAddComment = () => {
+    if (!textArea.current.value.length) {
+      return;
+    }
+
     const date = new Date();
 
     const commentsUpdated = comments.concat({
