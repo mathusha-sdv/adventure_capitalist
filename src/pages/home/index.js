@@ -1,12 +1,16 @@
 import React from 'react';
-
-import data from '../../components/data';
 import Page from '..';
-import Articles from './articles';
+import Products from './products';
+import Solde from '../../components/solde';
+import Managers from '../../components/mes_managers';
+import UnlockProduct from '../../components/debloquer_produit';
 
 const Home = () => (
   <Page>
-    <Articles data={data} />
+    <Solde />
+    <Products />
+    <UnlockProduct />
+    <Managers />
   </Page>
 );
 
